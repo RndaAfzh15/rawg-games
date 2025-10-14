@@ -62,4 +62,12 @@ function toggleTheme() {
   localStorage.setItem("theme", theme.value);
 }
 
-fun
+function closeMenu() {
+  isOpen.value = false;
+}
+
+//pastikan theme aktif saat load
+onMounted(() => {
+  document.documentElement.classList.toggle("dark", theme.value === "dark");
+});
+</script>
