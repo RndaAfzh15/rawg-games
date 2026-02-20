@@ -3,16 +3,16 @@
     <div
       class="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition"
     >
-      <!--  Responsive Navbar -->
+      
       <nav
         class="p-4 bg-gray-800 dark:bg-gray-700 text-white flex items-center justify-between"
       >
-        <!-- Logo -->
+      
         <div class="text-lg font-semibold">
           🎮 RAWG Games
         </div>
 
-        <!-- Hamburger Button -->
+        
         <button
           class="md:hidden text-2xl focus:outline-none"
           @click="menuOpen = !menuOpen"
@@ -20,7 +20,7 @@
           ☰
         </button>
 
-        <!-- Navigation Links -->
+        
         <div
           :class="[
             'flex flex-col md:flex-row md:items-center md:gap-4 absolute md:static left-0 top-[64px] w-full md:w-auto bg-gray-800 dark:bg-gray-700 md:bg-transparent transition-all duration-300 ease-in-out z-10',
@@ -52,7 +52,7 @@
         </div>
       </nav>
 
-      <!-- Page Content -->
+     
       <router-view />
     </div>
   </div>
