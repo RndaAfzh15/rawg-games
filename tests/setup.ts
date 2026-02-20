@@ -7,7 +7,7 @@ vi.stubGlobal('localStorage', {
   removeItem: vi.fn(),
 })
 
-// Mock router-link & router-view
+
 config.global.stubs = {
   'router-link': { template: '<a><slot /></a>' },
   'router-view': { template: '<div></div>' },
