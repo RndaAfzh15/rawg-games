@@ -2,12 +2,12 @@
   <nav
     class="bg-gray-800 text-white flex items-center justify-between px-4 py-3 shadow-md"
   >
-    <!-- Logo -->
+
     <RouterLink to="/" class="text-lg font-bold tracking-wide">
       🎮 RAWG Games
     </RouterLink>
 
-    <!-- Hamburger Button (Mobile) -->
+ 
     <button
       class="md:hidden text-2xl focus:outline-none"
       @click="isOpen = !isOpen"
@@ -15,7 +15,6 @@
       ☰
     </button>
 
-    <!-- Menu Links -->
     <div
       :class="[
         'flex flex-col md:flex-row md:items-center md:gap-6 absolute md:static left-0 top-full w-full md:w-auto bg-gray-800 md:bg-transparent transition-all duration-300 ease-in-out',
@@ -38,7 +37,7 @@
         Favorites
       </RouterLink>
 
-      <!-- Theme toggle -->
+  
       <button
         class="py-2 md:py-0 hover:text-gray-300"
         @click="toggleTheme"
@@ -66,7 +65,7 @@ function closeMenu() {
   isOpen.value = false;
 }
 
-//pastikan theme aktif saat load
+
 onMounted(() => {
   document.documentElement.classList.toggle("dark", theme.value === "dark");
 });
