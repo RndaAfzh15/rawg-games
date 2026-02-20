@@ -62,12 +62,12 @@ function toggleFavorite() {
   const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
 
   if (isFavorite.value) {
-    // Hapus dari favorit
+    
     const updated = favorites.filter((g: any) => g.id !== game.value.id);
     localStorage.setItem("favorites", JSON.stringify(updated));
     isFavorite.value = false;
   } else {
-    // Tambah ke favorit
+
     favorites.push({
       id: game.value.id,
       name: game.value.name,
