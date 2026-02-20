@@ -2,10 +2,10 @@
   <div class="p-4 min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition">
     <h1 class="text-2xl font-bold mb-4 text-center">🎮 RAWG Game List</h1>
 
-    <!-- Search -->
+  
     <SearchBar @search="handleSearch" />
 
-    <!-- Game grid -->
+   
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
       <router-link
         v-for="game in games"
@@ -28,7 +28,7 @@
       </router-link>
     </div>
 
-    <!-- Pagination -->
+    
     <div class="flex justify-center gap-4">
       <button
         class="px-3 py-1 bg-gray-200 dark:bg-gray-700 dark:text-gray-100 rounded hover:bg-gray-300 dark:hover:bg-gray-600 disabled:opacity-50"
@@ -60,7 +60,7 @@ const games = ref<any[]>([]);
 const page = ref(1);
 const query = ref("");
 
-// Fetch function
+
 async function loadGames() {
   let url = `https://api.rawg.io/api/games?key=${apiKey}&page=${page.value}&page_size=12`;
 
@@ -80,7 +80,7 @@ function prevPage() {
 }
 function handleSearch(val: string) {
   query.value = val;
-  page.value = 1; // reset ke halaman pertama
+  page.value = 1; 
   loadGames();
 }
 
