@@ -3,7 +3,7 @@ import GameList from '@/components/GameList.vue'
 import axios from 'axios'
 import { vi, describe, it, expect } from 'vitest'
 
-// Mock axios
+
 vi.mock('axios')
 const mockedAxios = axios as unknown as {
   get: ReturnType<typeof vi.fn>
@@ -22,10 +22,9 @@ describe('GameList.vue', () => {
 
     const wrapper = mount(GameList)
 
-    // Tunggu async request selesai
+   
     await new Promise(resolve => setTimeout(resolve, 0))
 
-    //Periksa apakah game muncul
     const gameCards = wrapper.findAll('h2')
     expect(gameCards.length).toBe(2)
     expect(gameCards[0].text()).toContain('The Witcher 3')
