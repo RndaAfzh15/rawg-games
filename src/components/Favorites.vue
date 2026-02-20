@@ -21,14 +21,13 @@
             : 'transform 0.25s cubic-bezier(0.25, 1, 0.5, 1)',
         }"
       >
-        <!-- Background merah untuk delete -->
+  
         <div
           class="absolute top-0 right-0 bottom-0 flex items-center justify-end pr-4 bg-red-500 text-white font-semibold w-full"
         >
           Delete
         </div>
 
-        <!-- Konten Game -->
         <div class="relative z-10 bg-white dark:bg-gray-800">
           <router-link :to="`/game/${game.id}`">
             <img
@@ -79,21 +78,20 @@ function removeFavorite(id: number) {
   localStorage.setItem("favorites", JSON.stringify(updated));
 }
 
-// Tombol delete manual → animasi fade out dulu
+
 async function handleDelete(id: number) {
   const index = favorites.value.findIndex((g) => g.id === id);
   if (index === -1) return;
 
-  // trigger animasi manual
+
   swipeData.value[id] = { startX: 0, translateX: -100 };
   await nextTick();
   swipeData.value[id].translateX = -window.innerWidth;
 
-  // kasih delay biar animasi kelar
   setTimeout(() => removeFavorite(id), 250);
 }
 
-// === SWIPE GESTURE LOGIC ===
+
 function startSwipe(event: TouchEvent, id: number) {
   const touch = event.touches[0];
   swipeData.value[id] = { startX: touch.clientX, translateX: 0 };
@@ -105,7 +103,7 @@ function moveSwipe(event: TouchEvent, id: number) {
   const deltaX = touch.clientX - swipeData.value[id].startX;
 
   if (deltaX < 0) {
-    // elastis effect (ngerem pas -150px)
+  
     const resistance =
       deltaX < -150 ? -150 - Math.pow(-deltaX - 150, 0.8) : deltaX;
     swipeData.value[id].translateX = resistance;
@@ -130,7 +128,7 @@ function getTranslateX(id: number) {
 </script>
 
 <style scoped>
-/* Transition untuk fade + slide keluar */
+
 .fade-slide-enter-active,
 .fade-slide-leave-active {
   transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
